@@ -22,6 +22,7 @@ public class servidorA {
                 for (long i = numero_inicial; i <= numero_final; i++) {
                     if (numero % i == 0) {
                         cadena = "DIVIDE";
+                        break;
                     }
                 }
                 dos.writeUTF(cadena);
@@ -40,6 +41,7 @@ public class servidorA {
             int puerto = 50000;
             ServerSocket servidor = new ServerSocket(puerto);
             for (;;) {
+                System.out.println("Servidor Iniciado");
                 Socket conexion = servidor.accept();
                 new Manejador(conexion).start();
             }
