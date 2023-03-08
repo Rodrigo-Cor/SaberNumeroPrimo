@@ -17,15 +17,20 @@ public class servidorA {
                 DataInputStream dis = new DataInputStream(conexion.getInputStream());
                 long numero = dis.readLong();
                 long numero_inicial = dis.readLong();
-                long numero_final =  dis.readLong();
-                for(long i = numero_inicial; i <= numero_final; i++){
-                    
+                long numero_final = dis.readLong();
+                String cadena = "NO DIVIDE";
+                for (long i = numero_inicial; i <= numero_final; i++) {
+                    if (numero % i == 0) {
+                        cadena = "DIVIDE";
+                    }
                 }
+                dos.write(cadena.getBytes());
+                dos.flush();
 
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
-            
+
         }
     }
 
