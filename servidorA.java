@@ -24,7 +24,7 @@ public class servidorA {
                         cadena = "DIVIDE";
                     }
                 }
-                dos.write(cadena.getBytes());
+                dos.writeUTF(cadena);
                 dos.flush();
                 conexion.close();
             } catch (Exception e) {
