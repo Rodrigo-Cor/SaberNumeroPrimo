@@ -26,10 +26,11 @@ public class servidorA {
                 }
                 dos.write(cadena.getBytes());
                 dos.flush();
-
+                conexion.close();
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
+            
 
         }
     }
