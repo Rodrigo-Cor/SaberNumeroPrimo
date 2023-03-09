@@ -2,6 +2,7 @@ import java.io.DataOutputStream;
 import java.io.DataInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class servidorA {
     static class Manejador extends Thread {
@@ -31,18 +32,20 @@ public class servidorA {
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
-            
 
         }
     }
 
     public static void main(String[] args) {
         try {
-            int puerto = 50000;
+            System.out.print("Puerto a utilizar: ");
+            Scanner entrada = new Scanner(System.in);
+            int puerto = entrada.nextInt();
             ServerSocket servidor = new ServerSocket(puerto);
             for (;;) {
                 System.out.println("Servidor Iniciado");
                 Socket conexion = servidor.accept();
+
                 new Manejador(conexion).start();
             }
         } catch (Exception e) {

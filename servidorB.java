@@ -38,9 +38,9 @@ public class servidorB {
             // long numeroCliente = dis.readLong();
             long numeroCliente = 1234567811;
             long k = numeroCliente / 3;
-            Socket a1 = new Socket("localhost", 50000);
-            Socket a2 = new Socket("localhost", 50000);
-            Socket a3 = new Socket("localhost", 50000);
+            Socket a1 = new Socket("localhost", 50002);
+            Socket a2 = new Socket("localhost", 50003);
+            Socket a3 = new Socket("localhost", 50004);
             mandarIntervalos(a1, numeroCliente, 2, k);
             String r1 = recibirRespuesta(a1);
             mandarIntervalos(a2, numeroCliente, k + 1, 2 * k);
