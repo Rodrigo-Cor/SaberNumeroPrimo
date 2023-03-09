@@ -1,9 +1,18 @@
+/* Paquetes que se necesitan */ 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/*
+ * Clase servidorB el cual divide en 3 intervalos para mandarlos al servidorA para recibir "NO DIVIDE"
+ *  si no se encontro un número divisible, en caso contrario se recibe "DIVIDE" si se encontro. 
+ */
 public class servidorB {
+    /*Método Estático mandarIntervalos
+     * Se recibe el socket de la conexión iniciada, el numero y los dos intervalos y se escribe en un 
+     * flujo de salida para mandarlos.
+     */
     public static void mandarIntervalos(Socket a, long n, long numeroI, long numeroF) {
         try {
             DataOutputStream dos = new DataOutputStream(a.getOutputStream());
@@ -19,6 +28,11 @@ public class servidorB {
         }
     }
 
+    /*Método Estático recibirRespuesta
+     * Se recibe el socket para recibir la respuesta del servidorA despues de mandar los intervalos
+     * y se regresa la cadena del mensaje.
+     */
+
     public static String recibirRespuesta(Socket a) {
         String mensaje = new String();
         try {
@@ -31,6 +45,9 @@ public class servidorB {
         return mensaje;
     }
 
+    /*  Main
+     * 
+     */
     public static void main(String[] args) {
         try {
             int puerto = 50001;
@@ -49,11 +66,10 @@ public class servidorB {
             String r2 = recibirRespuesta(a2);
             mandarIntervalos(a3, numeroCliente, (2 * k) + 1, numeroCliente - 1);
             String r3 = recibirRespuesta(a3);
-            if(r1.equals("NO DIVIDE") && r2.equals("NO DIVIDE") && r3.equals("NO DIVIDE")){
+            if (r1.equals("NO DIVIDE") && r2.equals("NO DIVIDE") && r3.equals("NO DIVIDE")) {
                 dos.writeUTF("ES PRIMO");
                 dos.flush();
-            }
-            else{
+            } else {
                 dos.writeUTF("NO ES PRIMO");
                 dos.flush();
             }
