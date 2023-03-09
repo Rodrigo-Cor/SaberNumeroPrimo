@@ -33,10 +33,10 @@ public class servidorB {
         try {
             int puerto = 50001;
             ServerSocket ss = new ServerSocket(puerto);
-            // Socket conexion = ss.accept();
-            // DataInputStream dis = new DataInputStream(conexion.getInputStream());
-            // long numeroCliente = dis.readLong();
-            long numeroCliente = 1234567811;
+            Socket conexion = ss.accept();
+            DataInputStream dis = new DataInputStream(conexion.getInputStream());
+            DataOutputStream dos = new DataOutputStream(conexion.getOutputStream());
+            long numeroCliente = dis.readLong();
             long k = numeroCliente / 3;
             Socket a1 = new Socket("localhost", 50002);
             Socket a2 = new Socket("localhost", 50003);
@@ -47,7 +47,14 @@ public class servidorB {
             String r2 = recibirRespuesta(a2);
             mandarIntervalos(a3, numeroCliente, (2 * k) + 1, numeroCliente - 1);
             String r3 = recibirRespuesta(a3);
-            System.out.println(r1 + r2 + r3);
+            if(r1.equals("DIVIDE") && r2.equals("DIVIDE") && r3.equals("DIVIDE")){
+                dos.writeUTF("ES PRIMO");
+                dos.flush();
+            }
+            else{
+                dos.writeUTF("NO ES PRIMO");
+                dos.flush();
+            }
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
