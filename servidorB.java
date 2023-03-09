@@ -47,7 +47,7 @@ public class servidorB {
             String r2 = recibirRespuesta(a2);
             mandarIntervalos(a3, numeroCliente, (2 * k) + 1, numeroCliente - 1);
             String r3 = recibirRespuesta(a3);
-            if(r1.equals("DIVIDE") && r2.equals("DIVIDE") && r3.equals("DIVIDE")){
+            if(r1.equals("NO DIVIDE") && r2.equals("NO DIVIDE") && r3.equals("NO DIVIDE")){
                 dos.writeUTF("ES PRIMO");
                 dos.flush();
             }
