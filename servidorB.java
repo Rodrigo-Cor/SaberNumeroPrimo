@@ -13,6 +13,7 @@ public class servidorB {
             dos.flush();
             dos.writeLong(numeroF);
             dos.flush();
+            dos.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -23,6 +24,7 @@ public class servidorB {
         try {
             DataInputStream dis = new DataInputStream(a.getInputStream());
             mensaje = dis.readUTF();
+            dis.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
@@ -55,6 +57,7 @@ public class servidorB {
                 dos.writeUTF("NO ES PRIMO");
                 dos.flush();
             }
+            ss.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

@@ -45,7 +45,6 @@ public class servidorA {
             for (;;) {
                 System.out.println("Servidor Iniciado");
                 Socket conexion = servidor.accept();
-
                 new Manejador(conexion).start();
             }
         } catch (Exception e) {

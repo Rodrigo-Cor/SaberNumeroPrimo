@@ -16,6 +16,7 @@ public class cliente {
             dos.flush();
             String resultado = dis.readUTF();
             System.out.println(resultado);
+            cliente.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
