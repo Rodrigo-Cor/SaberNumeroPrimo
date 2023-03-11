@@ -6,8 +6,10 @@ import java.util.Scanner;
 
 public class servidorA {
     static class Manejador extends Thread {
+        // Conexión de cada hilo
         Socket conexion;
 
+        // Constructor de la clase Manejador
         Manejador(Socket conexion) {
             this.conexion = conexion;
         }
@@ -36,7 +38,10 @@ public class servidorA {
                 // Se manda al servidorB la respuesta si se encontro algun divisor
                 dos.writeUTF(cadena);
                 dos.flush();
+
+                // Se cierra la conexión
                 conexion.close();
+
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
@@ -44,6 +49,7 @@ public class servidorA {
         }
     }
 
+    // Main
     public static void main(String[] args) {
         try {
             // Se solicita al usuario el puerto a utilizar para asi crear 3 instancias del
