@@ -1,2 +1,2 @@
-# SaberNumeroPrimo
-Tarea 1. Sistema Distribuido en Java para saber si un numero es primo o no 
+# Sistemas Distribuidos
+Programas de Sistemas Distribuidos desarrollados en lenguaje Java. Se utilizaron en algunos programas maquinas virtuales de Microsoft Azure para correr los programas, por lo que, se piden en las variables las IP´s públicas de estas. 
