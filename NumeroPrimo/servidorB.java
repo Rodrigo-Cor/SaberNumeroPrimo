@@ -10,7 +10,7 @@ public class servidorB {
     // primos
     static String cadenaR = "NO DIVIDE";
 
-    // Clase para crear las instancias de los servidores A en diferentes hilos
+    // Clase para crear las instancias de conexiones a los servidores A en diferentes hilos
     static class servidorA extends Thread {
         // Puerto, numero del cliente, los extremos de los intervalos y la cadena que se
         // recibe del servidor A
